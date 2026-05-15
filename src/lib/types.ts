@@ -1,0 +1,99 @@
+export type Link = {
+  label: string;
+  href: string;
+};
+
+export type ProfileLinks = {
+  github: string;
+  linkedin: string;
+  email: string;
+  cv?: string;
+};
+
+export type Profile = {
+  name: string;
+  tagline: string;
+  focusAreas: string[];
+  locations: string[];
+  bio: string[];
+  links: ProfileLinks;
+  portrait: string;
+};
+
+export type Pillar = {
+  title: string;
+  description: string;
+  tag: string;
+};
+
+export type ExperienceItem = {
+  role: string;
+  org: string;
+  location: string;
+  period: string;
+  bullets: string[];
+  tags?: string[];
+  current?: boolean;
+};
+
+export type Publication = {
+  title: string;
+  authors: string;
+  venue: string;
+  year: number;
+  abstract: string;
+  highlights: string[];
+  images: string[];
+  links: Link[];
+};
+
+export type ThesisCard = {
+  title: string;
+  subtitle: string;
+  org: string;
+  period: string;
+  summary: string;
+  objectives: string[];
+  tags: string[];
+  image?: string;
+};
+
+export type ProjectCategory =
+  | "Dexterous Manipulation"
+  | "Semantic Navigation & SLAM"
+  | "Aerial Robotics & Control"
+  | "ML Systems & Performance";
+
+export type Project = {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: ProjectCategory;
+  period: string;
+  org: string;
+  summary: string;
+  highlights: string[];
+  tags: string[];
+  cover: string;
+  gallery?: string[];
+  links?: Link[];
+  featured?: boolean;
+};
+
+export type EducationItem = {
+  school: string;
+  degree: string;
+  period: string;
+  location: string;
+  note?: string;
+};
+
+export type SkillGroup = {
+  group: string;
+  items: string[];
+};
+
+export type LanguageItem = {
+  language: string;
+  level: string;
+};

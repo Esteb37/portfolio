@@ -1,0 +1,73 @@
+import { motion } from "framer-motion";
+import { Briefcase, MapPin } from "lucide-react";
+import Section from "./Section";
+import { experience } from "@/content/experience";
+
+export default function Experience() {
+  return (
+    <Section
+      id="experience"
+      label="// experience"
+      title="Where I have built things."
+      description="Research and industry roles, from anthropomorphic hands at ETH and force-sensing floors in Tokyo to three internships at Meta on PyTorch/ExecuTorch, Core AI and WhatsApp Infrastructure."
+    >
+      <ol className="relative ml-3 border-l border-border">
+        {experience.map((item, idx) => (
+          <motion.li
+            key={`${item.org}-${item.period}`}
+            initial={{ opacity: 0, x: -8 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, delay: idx * 0.04 }}
+            className="relative ml-6 pb-10 last:pb-0"
+          >
+            <span
+              className={`absolute -left-[34px] mt-1 inline-flex h-3 w-3 items-center justify-center rounded-full border ${
+                item.current
+                  ? "border-accent bg-accent shadow-[0_0_0_4px_rgba(34,211,238,0.18)]"
+                  : "border-border bg-bg-elevated"
+              }`}
+              aria-hidden
+            />
+            <div className="surface surface-hover p-5">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-subtle">
+                <span className="inline-flex items-center gap-1.5">
+                  <Briefcase size={12} /> {item.period}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin size={12} /> {item.location}
+                </span>
+                {item.current ? (
+                  <span className="rounded-full border border-accent/40 bg-accent/10 px-2 py-0.5 text-accent">
+                    Current
+                  </span>
+                ) : null}
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-ink">
+                {item.role}
+              </h3>
+              <p className="text-sm text-ink-muted">{item.org}</p>
+              <ul className="mt-3 space-y-1.5 text-sm text-ink-muted">
+                {item.bullets.map((b) => (
+                  <li key={b} className="flex gap-2">
+                    <span className="mt-1.5 inline-block h-1 w-1 flex-none rounded-full bg-accent/70" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              {item.tags && item.tags.length > 0 ? (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {item.tags.map((tag) => (
+                    <span key={tag} className="chip">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          </motion.li>
+        ))}
+      </ol>
+    </Section>
+  );
+}
