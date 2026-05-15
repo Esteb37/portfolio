@@ -44,7 +44,6 @@ jobs:
             echo "base=/${REPO_NAME}/" >> "$GITHUB_OUTPUT"
           fi
 
-
       - name: Build
         env:
           BASE_PATH: ${{ steps.base.outputs.base }}
