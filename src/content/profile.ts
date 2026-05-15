@@ -37,7 +37,7 @@ export const pillars: Pillar[] = [
   {
     title: "Dexterous Manipulation",
     description:
-      "Tendon-driven anthropomorphic hands, teleoperation rigs and large-scale demonstration datasets. Building manipulation policies that go from a Quest headset to a 17-DoF hand on a Franka arm.",
+      "Tendon-driven anthropomorphic hands, teleoperation rigs and large-scale demonstration datasets. Built manipulation policies that go from a motion capture to a 17-DoF hand on a Franka arm.",
     tag: "// manipulation",
   },
 ];

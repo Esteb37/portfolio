@@ -21,7 +21,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`relative scroll-mt-24 py-20 sm:py-28 ${className}`}
+      className={`relative scroll-mt-24 py-20 sm:py-20 ${className}`}
     >
       <div className="container-page">
         <motion.div

@@ -1,7 +1,7 @@
 import type { Project, ProjectCategory } from "@/lib/types";
 
 export const projectCategories: ProjectCategory[] = [
-  "Dexterous Manipulation",
+  "Learning & Manipulation",
   "Semantic Navigation & SLAM",
   "Aerial Robotics & Control",
   "ML Systems & Performance",
@@ -14,7 +14,7 @@ export const projects: Project[] = [
     title: "RAPUNZEL — Tendon-Driven Anthropomorphic Hand",
     subtitle:
       "17-DoF tendon-driven hand integrated with a Franka Panda arm, taught by demonstration.",
-    category: "Dexterous Manipulation",
+    category: "Learning & Manipulation",
     period: "ETH Zürich · 2024 – 2025",
     org: "Soft Robotics Lab, ETH Zürich",
     summary:
@@ -33,13 +33,12 @@ export const projects: Project[] = [
       "MOCAP Teleop",
       "Franka",
     ],
-    cover: "rapunzel-labelled.png",
+    cover: "hand-spinner.gif",
     gallery: [
-      "hand-spinner.gif",
+      "rapunzel-labelled.png",
+      "rapunzel2.jpg",
+      "rapunzel3.jpg",
       "hand-card.gif",
-      "hand-teleop-arch.png",
-      "hand-inference-arch.png",
-      "hand-architecture.png",
     ],
     links: [
       {
@@ -50,11 +49,31 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "egoverse",
+    title: "EgoVerse — Egocentric Human Demonstration Data",
+    subtitle:
+      "Contributed as a data collector to EgoVerse, a collaborative ecosystem for human-centric robot learning.",
+    category: "Learning & Manipulation",
+    period: "ETH Zürich · 2025",
+    org: "Soft Robotics Lab × EgoVerse consortium",
+    summary:
+      "EgoVerse is an ecosystem for robot learning from egocentric human data, built across four academic labs and three industry partners. With the Soft Robotics Lab team, I helped collect rich, diverse and consistent egocentric demonstrations that feed the shared dataset.",
+    highlights: [
+      "Egocentric data collection sessions with consistent task and protocol design.",
+      "Contributed to a multi-lab, multi-partner robot-learning dataset.",
+      "Direct experience operating capture hardware (Quest, body-worn cameras) for data scale.",
+    ],
+    tags: ["Data collection", "Egocentric", "Robot learning"],
+    cover: "me-egoverse.png",
+    gallery: ["egoverse.jpg", "egoverse2.jpg", "teaching-rl.png","me-egoverse.png"],
+    links: [{ label: "egoverse.ai", href: "https://egoverse.ai" }],
+  },
+  {
     id: "groot-hackathon",
     title: "Mistral AI × GR00T — Generalized VLA in 48 Hours",
     subtitle:
       "Built a vision–language–action pipeline on NVIDIA GR00T during the Mistral AI Robotics Hackathon in Paris.",
-    category: "Dexterous Manipulation",
+    category: "Learning & Manipulation",
     period: "Paris · April 2025",
     org: "Mistral AI Physical AI & Robotics Hackathon",
     summary:
@@ -67,6 +86,13 @@ export const projects: Project[] = [
     tags: ["VLA", "NVIDIA GR00T", "LeRobot", "Mistral AI", "Hackathon"],
     cover: "me-with-groot.jpg",
     gallery: ["me-with-groot.jpg", "groot.jpg"],
+    videos: [
+      {
+        kind: "mp4",
+        src: "https://huggingface.co/datasets/roboticshack/submissions/resolve/main/Team15-final.mp4",
+        title: "Mistral × GR00T — final submission",
+      },
+    ],
     links: [
       {
         label: "Final submission video",
@@ -74,26 +100,7 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    id: "egoverse",
-    title: "EgoVerse — Egocentric Human Demonstration Data",
-    subtitle:
-      "Contributed as a data collector to EgoVerse, a collaborative ecosystem for human-centric robot learning.",
-    category: "Dexterous Manipulation",
-    period: "ETH Zürich · 2025",
-    org: "Soft Robotics Lab × EgoVerse consortium",
-    summary:
-      "EgoVerse is an ecosystem for robot learning from egocentric human data, built across four academic labs and three industry partners. With the Soft Robotics Lab team, I helped collect rich, diverse and consistent egocentric demonstrations that feed the shared dataset.",
-    highlights: [
-      "Egocentric data collection sessions with consistent task and protocol design.",
-      "Contributed to a multi-lab, multi-partner robot-learning dataset.",
-      "Direct experience operating capture hardware (Quest, body-worn cameras) for data scale.",
-    ],
-    tags: ["Data collection", "Egocentric", "Robot learning"],
-    cover: "me-egoverse.png",
-    gallery: ["me-egoverse.png"],
-    links: [{ label: "egoverse.ai", href: "https://egoverse.ai" }],
-  },
+
 
   // === Semantic Navigation & SLAM ===
   {
@@ -135,17 +142,21 @@ export const projects: Project[] = [
       "Designed for deployment on small robots without dense 3D maps.",
     ],
     tags: ["SLAM", "YOLOv8", "LiDAR", "ROS"],
-    cover: "ocslam-architecture.png",
-    gallery: ["ocslam-architecture.png"],
+    cover: "ocslam.png",
+    gallery: ["ocslam.png"],
+    videos: [
+      {
+        kind: "youtube",
+        src: "ok1H8ay-ka0",
+        title: "OCSLAM — demonstration",
+      },
+      {
+        kind: "youtube",
+        src: "0UuDkLe7XX8",
+        title: "OCSLAM — presentation",
+      },
+    ],
     links: [
-      {
-        label: "Demo video",
-        href: "https://www.youtube.com/watch?v=ok1H8ay-ka0",
-      },
-      {
-        label: "Presentation",
-        href: "https://www.youtube.com/watch?v=0UuDkLe7XX8",
-      },
       {
         label: "Repository",
         href: "https://github.com/Esteb37/object-conscious-slam",
@@ -154,26 +165,21 @@ export const projects: Project[] = [
   },
   {
     id: "puzzlebot-slam",
-    title: "Autonomous Navigation PuzzleBot",
+    title: "Ray-tracing SLAM for maze-solving robot",
     subtitle:
-      "ROS 1 + Gazebo autonomous navigation stack for a simulated differential-drive robot.",
+      "AUtonomous navigation stack for a differential-drive robot equipped with LIDAR and enhanced with ray-tracing capabilities for maze navigation.",
     category: "Semantic Navigation & SLAM",
     period: "Tec de Monterrey · 2024",
-    org: "Tec de Monterrey — Aranchubots team",
+    org: "Tec de Monterrey",
     summary:
-      "End-to-end autonomous navigation of the PuzzleBot in Gazebo: ROS 1 package setup, simulation launch, RVIZ visualization for mapping and navigation, and supporting scripts for bug navigation, Kalman filtering and ArUco-based localization.",
+      "End-to-end autonomous navigation of the PuzzleBot in Gazebo: ROS 1 package setup, sensor integration, mapping and navigation stack configuration, and custom node development for ray-tracing-based bug navigation and Kalman Filter localization. Achieved robust maze-solving performance in simulation.",
     highlights: [
       "Full mapping + navigation stack in Gazebo simulation.",
-      "Bug navigation, KF localization and ArUco marker detection scripts.",
-      "Team project with three teammates (Aranchubots).",
+      "Bug navigation with ray-tracing, KF localization and ArUco marker detection scripts.",
     ],
     tags: ["ROS", "Gazebo", "Kalman Filter", "ArUco"],
-    cover: "ocslam-architecture.png",
+    cover: "puzzlebot",
     links: [
-      {
-        label: "Demo video",
-        href: "https://youtu.be/cKHk5dFEsmY",
-      },
       {
         label: "Repository",
         href: "https://github.com/Esteb37/aranchubots_autonomousnavigation_puzzlebot",
@@ -184,14 +190,14 @@ export const projects: Project[] = [
   // === Aerial Robotics & Control ===
   {
     id: "atic",
-    title: "ATIC — Distributed MPC for Modular Aerial Robots",
+    title: "Distributed MPC for Modular Aerial Robots",
     subtitle:
       "ADMM-based decentralized MPC for the DRAGON articulated aerial platform.",
     category: "Aerial Robotics & Control",
     period: "ETH Zürich · 2025",
     org: "ETH Zürich",
     summary:
-      "DRAGON is an articulated modular aerial robot of four interlinked modules with two-DoF joints and vectoring thrust apparatus. Centralized planning becomes computationally heavy at this scale. ATIC distributes the load: each module is treated as an independent, rigidly linked drone solving a constrained MPC problem coordinated through ADMM, producing scalable shape-shifting trajectories and distributed wrench control.",
+      "DRAGON is an articulated modular aerial robot of four interlinked modules with two-DoF joints and vectoring thrust apparatus. Centralized planning becomes computationally heavy at this scale. Our solution distributes the load: each module is treated as an independent, rigidly linked drone solving a constrained MPC problem coordinated through ADMM, producing scalable shape-shifting trajectories and distributed wrench control.",
     highlights: [
       "Distributed MPC with ADMM coordination across modules.",
       "Trajectory optimization for snake, line and U-shape configurations.",
@@ -207,6 +213,7 @@ export const projects: Project[] = [
     ],
     cover: "atic-snake.gif",
     gallery: [
+      "dragon.jpeg",
       "atic-snake.gif",
       "atic-ushape.gif",
       "atic-line.gif",

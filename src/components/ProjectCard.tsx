@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Star } from "lucide-react";
+import { ArrowUpRight, PlayCircle, Star } from "lucide-react";
 import type { Project } from "@/lib/types";
 import { asset } from "@/lib/asset";
 
@@ -9,6 +9,8 @@ type Props = {
 };
 
 export default function ProjectCard({ project, onOpen }: Props) {
+  const hasVideo = (project.videos?.length ?? 0) > 0;
+
   return (
     <motion.button
       layout
@@ -27,13 +29,18 @@ export default function ProjectCard({ project, onOpen }: Props) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg-elevated/95 via-bg-elevated/10 to-transparent" />
-        <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
-          <span className="chip chip-accent backdrop-blur-sm">
+        <div className="absolute left-3 top-3 flex flex-wrap items-center gap-1.5">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-bg shadow-md">
             {project.category}
           </span>
           {project.featured ? (
-            <span className="chip border-gold/40 bg-gold/10 text-gold backdrop-blur-sm">
+            <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-bg shadow-md">
               <Star size={11} /> Featured
+            </span>
+          ) : null}
+          {hasVideo ? (
+            <span className="inline-flex items-center gap-1 rounded-full border border-border bg-bg/85 px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-ink backdrop-blur-sm">
+              <PlayCircle size={11} /> Video
             </span>
           ) : null}
         </div>

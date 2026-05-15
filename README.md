@@ -30,7 +30,7 @@ All content is in plain TypeScript files (typed) so you get autocomplete and ref
 - `src/content/profile.ts` — name, tagline, bio, focus areas, social links, hero portrait
 - `src/content/experience.ts` — research and industry timeline
 - `src/content/publications.ts` — papers (OpenFrontier) and current Master Thesis card
-- `src/content/projects.ts` — categorized projects (Dexterous Manipulation, Semantic Navigation & SLAM, Aerial Robotics & Control, ML Systems & Performance)
+- `src/content/projects.ts` — categorized projects (Learning & manipulation, Semantic Navigation & SLAM, Aerial Robotics & Control, ML Systems & Performance)
 - `src/content/education.ts` — schools/degrees
 - `src/content/skills.ts` — skill groups and languages
 

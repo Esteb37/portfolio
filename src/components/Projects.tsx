@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Section from "./Section";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
@@ -12,12 +12,32 @@ const filters: Filter[] = ["All", ...projectCategories];
 
 export default function Projects() {
   const [filter, setFilter] = useState<Filter>("All");
-  const [active, setActive] = useState<Project | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const filtered = useMemo(() => {
     if (filter === "All") return projects;
     return projects.filter((p) => p.category === filter);
   }, [filter]);
+
+  const handleOpen = useCallback(
+    (project: Project) => {
+      const idx = filtered.findIndex((p) => p.id === project.id);
+      setActiveIndex(idx >= 0 ? idx : null);
+    },
+    [filtered],
+  );
+
+  const handleClose = useCallback(() => setActiveIndex(null), []);
+  const handlePrev = useCallback(() => {
+    setActiveIndex((i) =>
+      i === null ? null : (i + filtered.length - 1) % filtered.length,
+    );
+  }, [filtered.length]);
+  const handleNext = useCallback(() => {
+    setActiveIndex((i) =>
+      i === null ? null : (i + 1) % filtered.length,
+    );
+  }, [filtered.length]);
 
   return (
     <Section
@@ -60,12 +80,18 @@ export default function Projects() {
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((p) => (
-            <ProjectCard key={p.id} project={p} onOpen={setActive} />
+            <ProjectCard key={p.id} project={p} onOpen={handleOpen} />
           ))}
         </AnimatePresence>
       </motion.div>
 
-      <ProjectModal project={active} onClose={() => setActive(null)} />
+      <ProjectModal
+        projects={filtered}
+        index={activeIndex}
+        onClose={handleClose}
+        onPrev={handlePrev}
+        onNext={handleNext}
+      />
     </Section>
   );
 }

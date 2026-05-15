@@ -20,9 +20,9 @@ const config: Config = {
           subtle: "#71717a",
         },
         accent: {
-          DEFAULT: "#22d3ee",
-          soft: "#67e8f9",
-          deep: "#0891b2",
+          DEFAULT: "#a78bfa",
+          soft: "#c4b5fd",
+          deep: "#7c3aed",
         },
         gold: {
           DEFAULT: "#fbbf24",
@@ -51,11 +51,11 @@ const config: Config = {
         ],
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(34, 211, 238, 0.22), 0 12px 40px -12px rgba(34, 211, 238, 0.35)",
+        glow: "0 0 0 1px rgba(167, 139, 250, 0.28), 0 12px 40px -12px rgba(167, 139, 250, 0.45)",
       },
       backgroundImage: {
         "grid-fade":
-          "radial-gradient(ellipse at top, rgba(34,211,238,0.08), transparent 60%)",
+          "radial-gradient(ellipse at top, rgba(167,139,250,0.10), transparent 60%)",
       },
       keyframes: {
         floatY: {

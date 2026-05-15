@@ -9,7 +9,9 @@ export default function Hero() {
       id="top"
       className="relative isolate overflow-hidden pt-28 sm:pt-32"
     >
-      <div className="container-page grid items-center gap-12 pb-20 sm:pb-28 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px] bg-[radial-gradient(ellipse_60%_40%_at_50%_-10%,rgba(167,139,250,0.18),transparent_60%)]" />
+
+      <div className="container-page grid items-center gap-12 pb-20 sm:pb-28 lg:grid-cols-[1.15fr_0.85fr]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,8 +28,23 @@ export default function Hero() {
           <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
             {profile.name}
           </h1>
+          <h2 className="mt-3 text-2xl font-bold leading-[1.05] tracking-tight text-ink sm:text-3xl lg:text-4xl">
+            Building the intelligence stack for robots that{" "}
+            <span className="bg-gradient-to-r from-accent via-accent-soft to-fuchsia-300 bg-clip-text text-transparent">
+              act
+            </span>
+            ,{" "}
+            <span className="bg-gradient-to-r from-accent-soft via-accent to-fuchsia-400 bg-clip-text text-transparent">
+              interact
+            </span>{" "}
+            and{" "}
+            <span className="bg-gradient-to-r from-fuchsia-300 via-accent to-accent-soft bg-clip-text text-transparent">
+              explore
+            </span>
+            .
+          </h2>
 
-          <p className="mt-4 text-lg text-ink-muted sm:text-xl">
+          <p className="mt-5 text-base text-ink-muted sm:text-lg">
             {profile.tagline}
             <span className="text-ink"> — </span>
             <span className="text-ink">{profile.focusAreas[0]}</span>
@@ -37,7 +54,7 @@ export default function Hero() {
             <span className="text-ink">{profile.focusAreas[2]}</span>
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-ink-muted">
+          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-ink-muted">
             <span className="inline-flex items-center gap-1.5">
               <MapPin size={12} />
               {profile.locations.join("  ·  ")}
@@ -49,7 +66,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-bg transition-transform hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-bg shadow-[0_8px_24px_-12px_rgba(167,139,250,0.7)] transition-transform hover:scale-[1.03]"
             >
               See my work <ArrowDownRight size={16} />
             </a>
@@ -95,11 +112,11 @@ export default function Hero() {
             <div className="absolute inset-x-0 bottom-0 p-4">
               <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.18em] text-ink-muted">
                 <span className="text-accent">// in the lab</span>
-                <span>ETH Zürich · Tokyo</span>
+                <span>ETH Zürich</span>
               </div>
             </div>
           </div>
-          <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-accent/10 blur-3xl" />
+          <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-accent/15 blur-3xl" />
         </motion.div>
       </div>
 

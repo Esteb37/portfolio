@@ -4,7 +4,7 @@ export const publications: Publication[] = [
   {
     title:
       "OpenFrontier: General Navigation with Visual-Language Grounded Frontiers",
-    authors: "Esteban Padilla*, Boyang Sun*, Marc Pollefeys, Hermann Blum",
+    authors: "Esteban Padilla Cerdio*, Boyang Sun*, Marc Pollefeys, Hermann Blum",
     venue: "Robotics: Science and Systems (RSS)",
     year: 2026,
     abstract:
@@ -14,7 +14,7 @@ export const publications: Publication[] = [
       "77% success rate on ObjectNav benchmarks in fully zero-shot settings.",
       "Real-world deployment on a mobile legged robot in large indoor environments.",
     ],
-    images: ["openfrontier-1.png", "openfrontier-2.png"],
+    images: ["openfrontier-1.png"],
     links: [
       {
         label: "arXiv 2603.05377",
@@ -30,13 +30,14 @@ export const thesis: ThesisCard = {
   org: "GVLab — University of Tokyo",
   period: "Feb 2026 – Present",
   summary:
-    "A distributed, privacy-preserving intelligent floor capable of global behavioral odometry and anticipatory human–robot coordination across wide spaces, extracting rich spatiotemporal structure from a minimal modality: ground reaction forces and center-of-pressure dynamics.",
+    "A distributed, privacy-preserving intelligent floor capable of global behavioral odometry and tracking of human–robot interaction across wide spaces, extracting rich spatiotemporal structure from a minimal modality: ground reaction forces and center-of-pressure dynamics from an under-determined source of data.",
   objectives: [
-    "Robust, low-latency streaming models (TCNs, depthwise-separable 1D CNNs, state-space models) for force-plate signals.",
+    "Robust, low-latency streaming models (TCNs, state-space models) for force-plate signals.",
+    "Retrieval of individual pressure influence from an under-determined low-resolution sensor array using physical priors.",
     "Multi-plate fusion to estimate human and robot global position, zone transitions, and multi-agent coexistence without visual tracking.",
     "Incremental learning of interaction patterns for proactive, anticipatory robot behavior.",
     "Privacy-by-design: no cameras, no wearables, only biomechanical ground interaction.",
   ],
   tags: ["HRI", "Force plates", "ROS 2", "Streaming ML", "Privacy-preserving"],
-  image: "teaching-rl.jpg",
+  image: "thesis.gif",
 };

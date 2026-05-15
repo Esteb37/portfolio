@@ -34,6 +34,7 @@ export type ExperienceItem = {
   bullets: string[];
   tags?: string[];
   current?: boolean;
+  logo?: string;
 };
 
 export type Publication = {
@@ -58,8 +59,14 @@ export type ThesisCard = {
   image?: string;
 };
 
+export type VideoEmbed = {
+  kind: "youtube" | "mp4";
+  src: string;
+  title: string;
+};
+
 export type ProjectCategory =
-  | "Dexterous Manipulation"
+  | "Learning & Manipulation"
   | "Semantic Navigation & SLAM"
   | "Aerial Robotics & Control"
   | "ML Systems & Performance";
@@ -76,6 +83,7 @@ export type Project = {
   tags: string[];
   cover: string;
   gallery?: string[];
+  videos?: VideoEmbed[];
   links?: Link[];
   featured?: boolean;
 };

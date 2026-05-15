@@ -7,6 +7,7 @@ export const experience: ExperienceItem[] = [
     location: "Tokyo, Japan",
     period: "Feb 2026 – Present",
     current: true,
+    logo: "logos/utokyo.png",
     bullets: [
       "Research on anticipatory human–robot interaction using biomechanical sensing and machine learning.",
       "Designing spatiotemporal ML models to infer human motion and intent from high-frequency force-plate sensor data.",
@@ -20,6 +21,7 @@ export const experience: ExperienceItem[] = [
     org: "Soft Robotics Laboratory, ETH Zürich",
     location: "Zürich, Switzerland",
     period: "Sept 2025 – Feb 2026",
+    logo: "logos/srl.png",
     bullets: [
       "Dexterous manipulation and robot learning with anthropomorphic robotic hands.",
       "Built teleoperation and demonstration collection systems for large-scale manipulation datasets.",
@@ -34,6 +36,7 @@ export const experience: ExperienceItem[] = [
     org: "Meta Platforms",
     location: "New York, USA",
     period: "Jun – Aug 2024",
+    logo: "logos/meta.png",
     bullets: [
       "Developed open-source GPU tooling to identify hardware bottlenecks in ML workloads.",
       "Implemented matrix multiplication optimizations and low-bit (4-bit) quantization.",
@@ -46,6 +49,7 @@ export const experience: ExperienceItem[] = [
     org: "Meta Platforms",
     location: "Seattle, USA",
     period: "Jun – Aug 2023",
+    logo: "logos/meta.png",
     bullets: [
       "Re-engineered a deep-learning image-enhancement algorithm for efficient CPU execution.",
       "Reduced runtime by ~99.7% through algorithmic and systems optimizations.",
@@ -57,10 +61,23 @@ export const experience: ExperienceItem[] = [
     org: "Meta Platforms",
     location: "California, USA",
     period: "May – Jul 2022",
+    logo: "logos/meta.png",
     bullets: [
       "Designed a distributed crash-report processing pipeline integrating logging and symbolication.",
       "Reduced crash-log upload latency by ~95% through asynchronous data pipelines.",
     ],
     tags: ["Distributed Systems", "Pipelines", "Infra"],
   },
+  {
+    role: "Software Development Intern — Meta University",
+    org: "Meta Platforms",
+    location: "Remote",
+    period: "Jun – Aug 2021",
+    logo: "logos/meta.png",
+    bullets: [
+      "Partook in a three-week Android development bootcamp with Java, followed by a five-week project phase.",
+      "Developed a native application with a recommendation system aimed at developers who wish to find open-source projects that align with their interests.",
+      "Implemented an interaction-based recommendation algorithm",
+    ]
+  }
 ];
