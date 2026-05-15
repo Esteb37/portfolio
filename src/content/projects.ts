@@ -65,7 +65,7 @@ export const projects: Project[] = [
     ],
     tags: ["Data collection", "Egocentric", "Robot learning"],
     cover: "me-egoverse.png",
-    gallery: ["egoverse.jpg", "egoverse2.jpg", "teaching-rl.png","me-egoverse.png"],
+    gallery: ["egoverse.jpg", "egoverse2.jpg","me-egoverse.png"],
     links: [{ label: "egoverse.ai", href: "https://egoverse.ai" }],
   },
   {

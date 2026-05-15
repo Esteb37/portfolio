@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, FlaskConical } from "lucide-react";
 import Section from "./Section";
+import CollapsibleOnMobile from "./CollapsibleOnMobile";
 import { publications, thesis } from "@/content/publications";
 import { asset } from "@/lib/asset";
 
@@ -58,17 +59,23 @@ export default function Research() {
               ))}
             </div>
 
-            <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-              {paper.abstract}
-            </p>
-            <ul className="mt-4 space-y-2 text-sm text-ink-muted">
-              {paper.highlights.map((h) => (
-                <li key={h} className="flex gap-2">
-                  <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-accent" />
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
+            <CollapsibleOnMobile
+              breakpoint="md"
+              showLabel="Show abstract"
+              hideLabel="Hide abstract"
+            >
+              <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+                {paper.abstract}
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-ink-muted">
+                {paper.highlights.map((h) => (
+                  <li key={h} className="flex gap-2">
+                    <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </CollapsibleOnMobile>
           </div>
         </motion.article>
 
@@ -107,17 +114,24 @@ export default function Research() {
               </span>
             </div>
 
-            <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-              {thesis.summary}
-            </p>
-            <ul className="mt-4 space-y-2 text-sm text-ink-muted">
-              {thesis.objectives.map((h) => (
-                <li key={h} className="flex gap-2">
-                  <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-gold" />
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
+            <CollapsibleOnMobile
+              breakpoint="md"
+              showLabel="Show details"
+              hideLabel="Hide details"
+            >
+              <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+                {thesis.summary}
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-ink-muted">
+                {thesis.objectives.map((h) => (
+                  <li key={h} className="flex gap-2">
+                    <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-gold" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </CollapsibleOnMobile>
+
             <div className="mt-5 flex flex-wrap gap-2">
               {thesis.tags.map((tag) => (
                 <span key={tag} className="chip">

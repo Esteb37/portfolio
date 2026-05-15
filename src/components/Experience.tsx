@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Briefcase, MapPin } from "lucide-react";
 import Section from "./Section";
+import CollapsibleOnMobile from "./CollapsibleOnMobile";
 import { experience } from "@/content/experience";
 import { asset } from "@/lib/asset";
 
@@ -63,14 +64,16 @@ export default function Experience() {
                 ) : null}
               </div>
 
-              <ul className="mt-3 space-y-1.5 text-sm text-ink-muted">
-                {item.bullets.map((b) => (
-                  <li key={b} className="flex gap-2">
-                    <span className="mt-1.5 inline-block h-1 w-1 flex-none rounded-full bg-accent/70" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
+              <CollapsibleOnMobile breakpoint="md" showLabel="Show details" hideLabel="Hide details">
+                <ul className="mt-3 space-y-1.5 text-sm text-ink-muted">
+                  {item.bullets.map((b) => (
+                    <li key={b} className="flex gap-2">
+                      <span className="mt-1.5 inline-block h-1 w-1 flex-none rounded-full bg-accent/70" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CollapsibleOnMobile>
 
               {item.tags && item.tags.length > 0 ? (
                 <div className="mt-4 flex flex-wrap gap-2">

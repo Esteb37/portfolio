@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 import Section from "./Section";
+import CollapsibleOnMobile from "./CollapsibleOnMobile";
 import { pillars, profile } from "@/content/profile";
 
 const pillarIcons: ReactNode[] = [
@@ -62,11 +63,17 @@ export default function About() {
             <p className="text-lg leading-relaxed text-ink sm:text-xl">
               {profile.bio[0]}
             </p>
-            <div className="mt-5 space-y-4 text-sm leading-relaxed text-ink-muted sm:text-base">
-              {profile.bio.slice(1).map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
-              ))}
-            </div>
+            <CollapsibleOnMobile
+              breakpoint="md"
+              showLabel="Read more"
+              hideLabel="Read less"
+            >
+              <div className="mt-5 space-y-4 text-sm leading-relaxed text-ink-muted sm:text-base">
+                {profile.bio.slice(1).map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
+              </div>
+            </CollapsibleOnMobile>
           </motion.div>
 
           <motion.div

@@ -25,7 +25,7 @@ export default function Nav() {
           aria-label="Home"
         >
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-md border border-accent/40 bg-accent/10 text-accent">
-            EP
+            EPC
           </span>
           <span className="hidden sm:inline">esteban.padillacerdio</span>
         </a>

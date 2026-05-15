@@ -45,32 +45,40 @@ export default function ProjectCard({ project, onOpen }: Props) {
           ) : null}
         </div>
       </div>
-      <div className="flex flex-1 flex-col gap-3 p-5">
+      <div className="flex flex-1 flex-col gap-3 p-4 sm:p-5">
         <div>
-          <div className="font-mono text-[11px] uppercase tracking-[0.15em] text-ink-subtle">
+          <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-subtle sm:text-[11px]">
             {project.period}
           </div>
-          <h3 className="mt-1 text-lg font-semibold leading-snug text-ink">
+          <h3 className="mt-1 text-base font-semibold leading-snug text-ink sm:text-lg">
             {project.title}
           </h3>
-          <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">
+          <p className="mt-1.5 hidden text-sm leading-relaxed text-ink-muted sm:block">
             {project.subtitle}
           </p>
         </div>
         <div className="mt-auto flex flex-wrap gap-1.5">
-          {project.tags.slice(0, 4).map((tag) => (
-            <span key={tag} className="chip">
-              {tag}
-            </span>
-          ))}
-          {project.tags.length > 4 ? (
-            <span className="chip">+{project.tags.length - 4}</span>
+          <span className="chip sm:hidden">
+            {project.tags[0]}
+          </span>
+          {project.tags.length > 1 ? (
+            <span className="chip sm:hidden">+{project.tags.length - 1}</span>
           ) : null}
+          <span className="hidden sm:contents">
+            {project.tags.slice(0, 4).map((tag) => (
+              <span key={tag} className="chip">
+                {tag}
+              </span>
+            ))}
+            {project.tags.length > 4 ? (
+              <span className="chip">+{project.tags.length - 4}</span>
+            ) : null}
+          </span>
         </div>
-        <div className="flex items-center justify-between pt-2 text-sm">
-          <span className="text-ink-subtle">{project.org}</span>
-          <span className="inline-flex items-center gap-1 text-accent opacity-0 transition-opacity group-hover:opacity-100">
-            Details <ArrowUpRight size={14} />
+        <div className="flex items-center justify-between gap-2 pt-2 text-xs sm:text-sm">
+          <span className="truncate text-ink-subtle">{project.org}</span>
+          <span className="inline-flex flex-none items-center gap-1 font-mono text-[10px] uppercase tracking-wider text-accent opacity-100 transition-opacity sm:text-xs sm:opacity-0 sm:group-hover:opacity-100">
+            Open <ArrowUpRight size={12} />
           </span>
         </div>
       </div>
