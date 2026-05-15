@@ -11,7 +11,7 @@ export const profile: Profile = {
   locations: ["Zürich", "Tokyo", "Mexico"],
   bio: [
     "AI and Robotics Engineer with a background in embodied intelligence, semantic navigation, dexterous manipulation and high-performance computing. I build end-to-end learning and mobility pipelines for robots — from anthropomorphic robotic hands to object-oriented navigation policies powered by vision–language models.",
-    "Currently a research intern at GVLab, University of Tokyo, after assisting the Soft Robotics Lab at ETH Zurich. Previously interned three times at Meta on PyTorch/ExecuTorch, Core AI, and WhatsApp Infrastructure.",
+    "Currently a research intern at GVLab, University of Tokyo, after assisting the Soft Robotics Lab at ETH Zurich. Previously interned four times at Meta on PyTorch/ExecuTorch, Core AI, and WhatsApp Infrastructure.",
   ],
   links: {
     github: "https://github.com/esteb37",

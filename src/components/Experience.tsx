@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
-import { Briefcase, MapPin } from "lucide-react";
+import { ArrowUpRight, Briefcase, MapPin } from "lucide-react";
+import { useState } from "react";
 import Section from "./Section";
-import CollapsibleOnMobile from "./CollapsibleOnMobile";
+import DetailModal from "./DetailModal";
 import { experience } from "@/content/experience";
 import { asset } from "@/lib/asset";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 export default function Experience() {
+  const isMobile = useIsMobile();
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const active = openIdx !== null ? experience[openIdx] : null;
+
   return (
     <Section
       id="experience"
@@ -31,7 +37,24 @@ export default function Experience() {
               }`}
               aria-hidden
             />
-            <div className="surface surface-hover p-5">
+            <div
+              className={`surface surface-hover p-5 text-left md:cursor-default ${
+                isMobile ? "cursor-pointer active:scale-[0.99]" : ""
+              }`}
+              role={isMobile ? "button" : undefined}
+              tabIndex={isMobile ? 0 : undefined}
+              onClick={isMobile ? () => setOpenIdx(idx) : undefined}
+              onKeyDown={
+                isMobile
+                  ? (e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setOpenIdx(idx);
+                      }
+                    }
+                  : undefined
+              }
+            >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-subtle">
@@ -64,16 +87,14 @@ export default function Experience() {
                 ) : null}
               </div>
 
-              <CollapsibleOnMobile breakpoint="md" showLabel="Show details" hideLabel="Hide details">
-                <ul className="mt-3 space-y-1.5 text-sm text-ink-muted">
-                  {item.bullets.map((b) => (
-                    <li key={b} className="flex gap-2">
-                      <span className="mt-1.5 inline-block h-1 w-1 flex-none rounded-full bg-accent/70" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CollapsibleOnMobile>
+              <ul className="mt-3 hidden space-y-1.5 text-sm text-ink-muted md:block">
+                {item.bullets.map((b) => (
+                  <li key={b} className="flex gap-2">
+                    <span className="mt-1.5 inline-block h-1 w-1 flex-none rounded-full bg-accent/70" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
 
               {item.tags && item.tags.length > 0 ? (
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -84,10 +105,70 @@ export default function Experience() {
                   ))}
                 </div>
               ) : null}
+
+              <div className="mt-4 inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-wider text-accent md:hidden">
+                Tap to open <ArrowUpRight size={12} />
+              </div>
             </div>
           </motion.li>
         ))}
       </ol>
+
+      <DetailModal open={active !== null} onClose={() => setOpenIdx(null)}>
+        {active ? (
+          <div>
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-subtle">
+                  <span className="inline-flex items-center gap-1.5">
+                    <Briefcase size={12} /> {active.period}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <MapPin size={12} /> {active.location}
+                  </span>
+                  {active.current ? (
+                    <span className="rounded-full border border-accent/50 bg-accent/15 px-2 py-0.5 text-accent">
+                      Current
+                    </span>
+                  ) : null}
+                </div>
+                <h3 className="mt-2 text-xl font-semibold text-ink">
+                  {active.role}
+                </h3>
+                <p className="text-sm text-ink-muted">{active.org}</p>
+              </div>
+              {active.logo ? (
+                <div className="flex h-14 w-28 flex-none items-center justify-end">
+                  <img
+                    src={asset(active.logo)}
+                    alt={`${active.org} logo`}
+                    className="max-h-12 max-w-full object-contain opacity-90 [filter:grayscale(1)_brightness(1.6)_contrast(1)]"
+                  />
+                </div>
+              ) : null}
+            </div>
+
+            <ul className="mt-5 space-y-2 text-sm text-ink-muted">
+              {active.bullets.map((b) => (
+                <li key={b} className="flex gap-2">
+                  <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-accent/70" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            {active.tags && active.tags.length > 0 ? (
+              <div className="mt-5 flex flex-wrap gap-2">
+                {active.tags.map((tag) => (
+                  <span key={tag} className="chip">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+      </DetailModal>
     </Section>
   );
 }
